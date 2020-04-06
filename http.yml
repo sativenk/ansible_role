@@ -1,0 +1,19 @@
+---
+- hosts: servera.lab.example.com
+  remote_user: root
+  pre_tasks:
+    - name: to run a message
+      debug:
+        msg: "web server configuration"
+  roles:
+    - http
+  post_tasks:
+    - name: to install http
+      copy:
+        src: index.html
+        dest: var/www/html/
+    - name: to print a message
+      debug:
+        msg: "web server configured"
+              
+
